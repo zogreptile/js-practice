@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+            integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+            crossorigin="anonymous"></script>
+
+    <title>Руслан Туполев - About me</title>
+</head>
+<body class="portfolio">
+<header class="portfolio__header">
+    <h1 class="header__fullname">
+        Руслан Туполев
+    </h1>
+    <h3 class="header__specialty">
+        Веб-разработчик
+    </h3>
+    <p class="header__links">
+        <a class="link link--email"
+           href="mailto:rtupolev.js@gmail.com"
+           target="_blank">
+            <i class="far fa-envelope"></i>
+            rtupolev.js@gmail.com
+        </a>
+        <a class="link link--homepage"
+           href="https://github.com/rtplv"
+           target="_blank">
+            <i class="fab fa-github"></i>
+            github.com/rtplv
+        </a>
+    </p>
+</header>
+<main id="portfolioPage"
+      class="portfolio__main">
+    <div class="main__description">
+        <p>
+            Увлекаюсь веб-разработкой с 2017 года. Пишу на JS (ES6), могу в Webpack, Git, Vue.js.
+            Люблю кошек, мороженное, табак и гифки. Как Вам эта:
+        </p>
+    </div>
+    <div class="main__random-gif">
+        <img id="randomGif" src="" alt="">
+    </div>
+    <!--<div class="main__experience"></div>-->
+    <!--<div class="main__education"></div>-->
+</main>
+<footer></footer>
+<script>
+  var api_key = 'GFgLr37FftbRmgNZQuVKx6NjACnWwzzp';
+  var image = document.getElementById('randomGif');
+
+  fetch('https://api.giphy.com/v1/gifs/random?api_key=' + api_key)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      image.alt = data.data.title;
+      image.src = data.data.image_url;
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+</script>
+</body>
+</html>
